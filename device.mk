@@ -483,6 +483,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
+
 # Wi-Fi Display
 PRODUCT_PACKAGES += \
     libnl
@@ -493,3 +494,11 @@ PRODUCT_BOOT_JARS += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     hardware/xiaomi
+
+# Google Lens
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/camera/lens/google_build.xml:system/etc/sysconfig/google_build.xml \
+    $(LOCAL_PATH)/camera/lens/nexus.xml:system/etc/sysconfig/nexus.xml \
+    $(LOCAL_PATH)/camera/lens/pixel_2017.xml:system/etc/sysconfig/pixel_2017.xml \
+    $(LOCAL_PATH)/camera/lens/pixel_2017_exclusive.xml:system/etc/sysconfig/pixel_2017_exclusive.xml
+
