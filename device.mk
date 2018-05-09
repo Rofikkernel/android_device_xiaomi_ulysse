@@ -159,6 +159,9 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0_vendor
 
+PRODUCT_PACKAGES += \
+    libstdc++.vendor
+
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service
