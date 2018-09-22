@@ -13,9 +13,20 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey         u:object_r:hal_drm_clearkey_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.xiaomi_ulysse      u:object_r:hal_lineage_touch_default_exec:s0
 
+
 # Input devices
 /(vendor|system/vendor)/usr/idc(/.*)?                         u:object_r:idc_file:s0
 /(vendor|system/vendor)/usr/keylayout(/.*)?                   u:object_r:keylayout_file:s0
+
+# Data vendor files
+/data/vendor/misc/audio(/.*)?         u:object_r:vendor_audio_data_file:s0
+
+# Persist files
+/(mnt/vendor)/persist/audio/us_cal                 u:object_r:persist_usf_cal_file:s0
+/(mnt/vendor)/persist/PRSensorData\.txt            u:object_r:sensors_persist_file:s0
+/(mnt/vendor)/persist/PSensor3cm_ct\.txt           u:object_r:sensors_persist_file:s0
+/(mnt/vendor)/persist/qc_senseid(/.*)?             u:object_r:persist_qc_senseid_file:s0
+
 
 # Location
 /data/vendor/location/xtra/socket_hal_xtra    u:object_r:location_socket:s0
