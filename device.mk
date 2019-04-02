@@ -436,7 +436,7 @@ $(call inherit-product, build/target/product/verity.mk)
 
 # VNDK
 PRODUCT_PACKAGES += \
-    vndk-sp
+    vndk_package
 
 # Thermal
 PRODUCT_PACKAGES += \
