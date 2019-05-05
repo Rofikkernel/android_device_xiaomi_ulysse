@@ -427,7 +427,8 @@ $(call inherit-product, build/target/product/verity.mk)
 
 # VNDK
 PRODUCT_PACKAGES += \
-    vndk-sp
+    vndk_package \
+    libstdc++.vendor
 
 # Thermal
 PRODUCT_PACKAGES += \
