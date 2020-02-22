@@ -424,7 +424,9 @@ PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name
 $(call inherit-product, build/target/product/verity.mk)
 
 # VNDK
-PRODUCT_PACKAGES += vndk_package
+PRODUCT_PACKAGES += \
+    vndk-ext \
+    vndk_package
 
 # Thermal
 PRODUCT_PACKAGES += \
