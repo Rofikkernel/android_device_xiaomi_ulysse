@@ -103,6 +103,9 @@ void check_device()
         heaptargetutilization = "0.75";
         heapminfree = "512k";
         heapmaxfree = "8m";
+
+        // Enable low ram flag
+        property_set("ro.config.low_ram", "true");
     }
 }
 
