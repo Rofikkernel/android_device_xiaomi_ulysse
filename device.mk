@@ -86,12 +86,16 @@ PRODUCT_PACKAGES += \
     libantradio
 
 # Device-specific Settings
-PRODUCT_PACKAGES += \
-    XiaomiParts
+
 
 #add XiaomiAddon
 PRODUCT_PACKAGES += \
     XiaomiAddon
+
+#add Xiaomi Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts \
+    XiaomiDoze
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -183,6 +187,7 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libgenlock \
     libtinyxml
+
 
 # DRM
 PRODUCT_PACKAGES += \
