@@ -92,7 +92,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiAddon
 
-#add Xiaomi Parts
+#add Xiaomi Parts to ulysse
 PRODUCT_PACKAGES += \
     XiaomiParts \
     XiaomiDoze
@@ -187,6 +187,7 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libgenlock \
     libtinyxml
+
 
 
 # DRM
