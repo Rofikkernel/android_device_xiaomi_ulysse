@@ -504,8 +504,19 @@
     <!-- Enable system navigation keys. -->
     <bool name="config_supportSystemNavigationKeys">true</bool>
 
+
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
    <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>
+
+    <!-- Smart replies in notifications: Whether we disable the feature unless the app targets P -->
+    <bool name="config_smart_replies_in_notifications_requires_targeting_p">false</bool>
+	
+    <!-- The list of components which should be automatically disabled for a specific device. -->
+    <string-array name="config_deviceDisabledComponents" translatable="false">
+        <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
+        <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
+    </string-array>
+
 
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
    <bool name="config_cleanupUnusedFingerprints">false</bool>
