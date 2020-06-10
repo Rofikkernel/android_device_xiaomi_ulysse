@@ -52,6 +52,9 @@ TARGET_KERNEL_VERSION ?= 3.18
 ifeq ($(TARGET_KERNEL_VERSION),4.9)
 BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true
 TARGET_KERNEL_CLANG_COMPILE := true
+ifneq ($(wildcard vendor/qcom/sdclang-8.0/linux-x86_64),)
+TARGET_KERNEL_CLANG_PATH := $(PWD)/vendor/qcom/sdclang-8.0/linux-x86_64
+endif
 else ifeq ($(TARGET_KERNEL_VERSION),3.18)
 TARGET_KERNEL_ARCH := arm64
 TARGET_COMPILE_WITH_MSM_KERNEL := true
