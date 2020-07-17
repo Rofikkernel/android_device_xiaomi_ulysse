@@ -1,0 +1,14 @@
+[
+  {
+    "repository": "Blacksuan19/kernel_dark_ages_vince",
+    "target_path": "kernel/xiaomi/vince",
+    "branch": "darky",
+    "remote": "github"
+ },
+  {
+    "repository": "Mahmoudk1000/android_vendor_xiaomi",
+    "target_path": "vendor/xiaomi/vince",
+    "branch": "ten",
+    "remote": "github"
+  },
+]
