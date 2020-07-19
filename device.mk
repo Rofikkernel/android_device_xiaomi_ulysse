@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/xiaomi/ulysse-common/ulysse-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/ulysse/ulysse-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -307,7 +307,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Properties
--include device/xiaomi/ulysse-common/prop.mk
+-include device/xiaomi/ulysse/prop.mk
 
 # QMI
 PRODUCT_PACKAGES += \

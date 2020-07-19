@@ -1,5 +1,5 @@
 #
-# system.prop for ulysse-common
+# system.prop for ulysse
 #
 
 # Audio

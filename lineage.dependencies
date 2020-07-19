@@ -1,0 +1,6 @@
+[
+  {
+    "repository": "android_kernel_xiaomi_ulysse",
+    "target_path": "kernel/xiaomi/ulysse"
+  }
+]

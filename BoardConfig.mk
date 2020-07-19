@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-VENDOR_PATH := device/xiaomi/ulysse-common
+VENDOR_PATH := device/xiaomi/ulysse
 
 # Architecture
 TARGET_ARCH := arm64
@@ -30,7 +30,6 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
 TARGET_BOARD_PLATFORM := msm8937
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno505
 
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
@@ -45,6 +44,7 @@ BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+TARGET_KERNEL_CONFIG := ulysse_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/ulysse
 TARGET_KERNEL_VERSION ?= 3.18
 ifeq ($(TARGET_KERNEL_VERSION),4.9)
@@ -223,4 +223,4 @@ WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/xiaomi/ulysse-common/BoardConfigVendor.mk
+-include vendor/xiaomi/ulysse/BoardConfigVendor.mk
