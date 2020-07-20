@@ -1,2 +1,4 @@
-soong_namespace {
-}
+subdirs = [
+    "init",
+    "touch",
+]
