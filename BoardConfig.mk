@@ -157,8 +157,8 @@ DEVICE_MANIFEST_FILE += $(VENDOR_PATH)/manifest-fingerprint.xml
 DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_msm8937
-TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8937
+TARGET_INIT_VENDOR_LIB := libinit_ulysse
+TARGET_RECOVERY_DEVICE_MODULES := libinit_ulysse
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
