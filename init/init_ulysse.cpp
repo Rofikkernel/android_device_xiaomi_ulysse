@@ -34,6 +34,8 @@
 #include <sys/sysinfo.h>
 #include <unistd.h>
 
+#include <android-base/file.h>
+#include <android-base/logging.h>
 #include <android-base/properties.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
@@ -41,8 +43,11 @@
 #include "vendor_init.h"
 #include "property_service.h"
 
+#define DT_MODEL_FILE "/proc/device-tree/model"
+
 using android::base::GetProperty;
 using android::init::property_set;
+using android::base::ReadFileToString;
 
 char const *heapstartsize;
 char const *heapgrowthlimit;
@@ -101,32 +106,28 @@ void check_device()
     }
 }
 
-void set_device_name_ugg()
-{
-	property_override_dual("ro.product.device", "ro.product.vendor.device", "ugg");
-	property_override_dual("ro.product.model", "ro.product.vendor.model", "Redmi Note 5A Prime");
-}
-
-void set_device_name_ugglite()
-{
-	property_override_dual("ro.product.device", "ro.product.vendor.device", "ugglite");
-	property_override_dual("ro.product.model", "ro.product.vendor.model", "Redmi Note 5A Lite");
-}
-
 void set_device_name()
 {
-	/* get the fingerprint chip name */
-	std::string fingerprint = android::base::GetProperty("ro.boot.fpsensor", "");
+    std::string dt_model;
 
-	if (fingerprint.find("fpc") == 0) {
-		set_device_name_ugg();
-	}
-	else if (fingerprint.find("gdx") == 0) {
-		set_device_name_ugg();
-	}
-	else {
-		set_device_name_ugglite();
-	}
+    if (ReadFileToString(DT_MODEL_FILE, &dt_model)) {
+        LOG(INFO) << "DT Model: " << dt_model;
+
+        if (!strncmp(dt_model.c_str(), "Qualcomm Technologies, Inc. MSM8917-PMI8937 MTP", 47)) {
+            property_override_dual("ro.product.device", "ro.product.vendor.device", "ugglite");
+            property_override_dual("ro.product.model", "ro.product.vendor.model", "Redmi Note 5A Lite");
+        }
+        else if (!strncmp(dt_model.c_str(), "Qualcomm Technologies, Inc. MSM8940-PMI8937 MTP", 47)) {
+            property_override_dual("ro.product.device", "ro.product.vendor.device", "ugg");
+            property_override_dual("ro.product.model", "ro.product.vendor.model", "Redmi Note 5A Prime");
+        }
+        else {
+            LOG(WARNING) << "No known device name was detected! Leaving the variable untouched.";
+        }
+    }
+    else {
+    LOG(ERROR) << "Unable to read dt_model from " << DT_MODEL_FILE;
+    }
 }
 
 void vendor_load_properties()
