@@ -58,6 +58,9 @@ endif
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
+# Asserts
+TARGET_OTA_ASSERT_DEVICE := ulysse,ugglite,ugg
+
 # Audio
 AUDIO_FEATURE_ENABLED_ANC_HEADSET := true
 AUDIO_FEATURE_ENABLED_ALAC_OFFLOAD := true
