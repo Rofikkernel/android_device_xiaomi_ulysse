@@ -51,6 +51,23 @@ char const *heapminfree;
 char const *heapmaxfree;
 char const *heaptargetutilization;
 
+void property_override(char const prop[], char const value[])
+{
+    prop_info *pi;
+
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
+
+void property_override_dual(char const system_prop[], char const vendor_prop[], char const value[])
+{
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+}
+
 void check_device()
 {
     struct sysinfo sys;
@@ -84,6 +101,34 @@ void check_device()
     }
 }
 
+void set_device_name_ugg()
+{
+	property_override_dual("ro.product.device", "ro.product.vendor.device", "ugg");
+	property_override_dual("ro.product.model", "ro.product.vendor.model", "Redmi Note 5A Prime");
+}
+
+void set_device_name_ugglite()
+{
+	property_override_dual("ro.product.device", "ro.product.vendor.device", "ugglite");
+	property_override_dual("ro.product.model", "ro.product.vendor.model", "Redmi Note 5A Lite");
+}
+
+void set_device_name()
+{
+	/* get the fingerprint chip name */
+	std::string fingerprint = android::base::GetProperty("ro.boot.fpsensor", "");
+
+	if (fingerprint.find("fpc") == 0) {
+		set_device_name_ugg();
+	}
+	else if (fingerprint.find("gdx") == 0) {
+		set_device_name_ugg();
+	}
+	else {
+		set_device_name_ugglite();
+	}
+}
+
 void vendor_load_properties()
 {
     check_device();
@@ -94,4 +139,6 @@ void vendor_load_properties()
     property_set("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_set("dalvik.vm.heapminfree", heapminfree);
     property_set("dalvik.vm.heapmaxfree", heapmaxfree);
+
+    set_device_name();
 }
