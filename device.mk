@@ -432,7 +432,7 @@ PRODUCT_PACKAGES += \
 
 # Touch HAL
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.xiaomi_8937
+    vendor.lineage.touch@1.0-service.xiaomi_ulysse
 
 # Vibrator
 PRODUCT_PACKAGES += \
