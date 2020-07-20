@@ -501,4 +501,10 @@
     <!-- Telephony qualified networks service package name to bind to by default. -->
     <string name="config_qualified_networks_service_package">vendor.qti.iwlan</string>
 
+    <!-- Whether notify fingerprint client of successful cancelled authentication -->
+   <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>
+
+    <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
+   <bool name="config_cleanupUnusedFingerprints">false</bool>
+
 </resources>

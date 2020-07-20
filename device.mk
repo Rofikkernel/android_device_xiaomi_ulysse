@@ -69,6 +69,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
+# Permissions - Fingerprint
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
+
 # ANT
 PRODUCT_PACKAGES += \
     AntHalService \
@@ -184,6 +188,11 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
+# Fingerprint
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1 \
+    libunwind
+
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
@@ -232,6 +241,12 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/keylayout/ist30xx_ts_input.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ist30xx_ts_input.kl \
         $(LOCAL_PATH)/keylayout/msm8952-snd-card_Button_Jack.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/msm8952-snd-card_Button_Jack.kl \
         $(LOCAL_PATH)/keylayout/qpnp_pon.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/qpnp_pon.kl
+
+# Input - Fingerprint
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/gf3208.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gf3208.kl \
+    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl \
+    $(LOCAL_PATH)/keylayout/uinput-gf.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-gf.kl
 
 # IPA Manager
 PRODUCT_PACKAGES += \
@@ -336,6 +351,11 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     move_time_data.sh \
     move_wifi_data.sh
+
+# Ramdisk - Fingerprint
+PRODUCT_PACKAGES += \
+    init.goodix.sh \
+    init.ugg.rc
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \

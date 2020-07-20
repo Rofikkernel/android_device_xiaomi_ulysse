@@ -153,6 +153,7 @@ TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
+DEVICE_MANIFEST_FILE += $(VENDOR_PATH)/manifest-fingerprint.xml
 DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
 
 # Init
@@ -213,6 +214,7 @@ VENDOR_SECURITY_PATCH := 2020-05-05
 # SELinux
 include device/qcom/sepolicy-legacy-um/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy-fingerprint
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
