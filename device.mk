@@ -14,7 +14,8 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/xiaomi/ulysse/ulysse-vendor.mk)
+$(call inherit-product, vendor/xiaomi/ulysse-common/ulysse-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/ugg/ugg-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
