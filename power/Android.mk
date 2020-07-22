@@ -60,8 +60,8 @@ ifeq ($(TARGET_ARCH),arm)
     LOCAL_CFLAGS += -DARCH_ARM_32
 endif
 
-LOCAL_MODULE := android.hardware.power@1.2-service-qti.ulysse
-LOCAL_INIT_RC := android.hardware.power@1.2-service-qti.ulysse.rc
+LOCAL_MODULE := android.hardware.power@1.2-service-qti.ulysse-unified
+LOCAL_INIT_RC := android.hardware.power@1.2-service-qti.ulysse-unified.rc
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
 
