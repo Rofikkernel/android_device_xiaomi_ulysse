@@ -69,6 +69,11 @@ persist.vendor.cne.feature=1 \
 persist.vendor.dpm.feature=1 \
 persist.vendor.dpm.loglevel=0
 
+# Core Control
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.core_ctl_min_cpu=2 \
+ro.core_ctl_max_cpu=4
+
 # Coresight
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.debug.coresight.config=stm-events
