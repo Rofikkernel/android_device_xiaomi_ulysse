@@ -316,7 +316,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service-qti.ulysse
+    android.hardware.power@1.2-service-qti.ulysse-unified
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
@@ -432,7 +432,7 @@ PRODUCT_PACKAGES += \
 
 # Touch HAL
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.xiaomi_ulysse
+    vendor.lineage.touch@1.0-service.xiaomi_ulysse-unified
 
 # Vibrator
 PRODUCT_PACKAGES += \
