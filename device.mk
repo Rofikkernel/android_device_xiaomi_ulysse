@@ -160,7 +160,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0_vendor
 
 PRODUCT_PACKAGES += \
-    libstdc++.vendor
+    libstdc++.vendor \
+    libgui_vendor
 
 # Configstore
 PRODUCT_PACKAGES += \
