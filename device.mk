@@ -205,7 +205,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1 \
-    libunwind \
+    libunwind_static.vendor \
     vendor.goodix.hardware.biometrics.fingerprint@2.1
 
 PRODUCT_PACKAGES += \
