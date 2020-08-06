@@ -208,6 +208,9 @@ PRODUCT_PACKAGES += \
     libunwind \
     vendor.goodix.hardware.biometrics.fingerprint@2.1
 
+PRODUCT_PACKAGES += \
+    libbinder.vendor
+
 # FM
 PRODUCT_PACKAGES += \
     FMRadio \
