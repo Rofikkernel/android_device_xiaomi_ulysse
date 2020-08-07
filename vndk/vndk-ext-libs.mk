@@ -3,6 +3,7 @@ EXTRA_VENDOR_LIBRARIES := \
     libpowermanager
 
 EXTRA_VENDOR_LIBRARIES := \
+    libandroid \
     libbinder \
     libbinderthreadstate \
     libcutils \
