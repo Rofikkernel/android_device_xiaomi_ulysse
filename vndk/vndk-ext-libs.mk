@@ -4,6 +4,7 @@ EXTRA_VENDOR_LIBRARIES := \
 
 EXTRA_VENDOR_LIBRARIES := \
     libbinder \
+    libbinderthreadstate \
     libcutils \
     libgui \
     libprocessgroup \
