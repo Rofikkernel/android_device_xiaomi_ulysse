@@ -56,6 +56,57 @@ char const *heapminfree;
 char const *heapmaxfree;
 char const *heaptargetutilization;
 
+
+/*modified by @rofikkernel Fixed From HavocOS santoni*/
+/*HridayHS authored and Nikesh001 */
+/*added  PowerOff Alarm*/
+
+/*added  PowerOff Alarm*/
+
+#include <fcntl.h>
+#include <stdlib.h>
+#include <iostream>
+#include <string>
+#include <sstream>
+
+
+
+/*end added*/
+static void init_alarm_boot_properties()
+{
+    int boot_reason;
+    FILE *fp;
+
+    fp = fopen("/proc/sys/kernel/boot_reason", "r");
+    fscanf(fp, "%d", &boot_reason);
+    fclose(fp);
+
+    /*
+     * Setup ro.alarm_boot value to true when it is RTC triggered boot up
+     * For existing PMIC chips, the following mapping applies
+     * for the value of boot_reason:
+     *
+     * 0 -> unknown
+     * 1 -> hard reset
+     * 2 -> sudden momentary power loss (SMPL)
+     * 3 -> real time clock (RTC)
+     * 4 -> DC charger inserted
+     * 5 -> USB charger inserted
+     * 6 -> PON1 pin toggled (for secondary PMICs)
+     * 7 -> CBLPWR_N pin toggled (for external power supply)
+     * 8 -> KPDPWR_N pin toggled (power key pressed)
+     */
+  
+     if (boot_reason == 3) {
+     property_set("ro.alarm_boot", "true");
+     } else {
+        property_set("ro.alarm_boot", "false");
+     }
+}
+
+
+
+
 void property_override(char const prop[], char const value[])
 {
     prop_info *pi;
@@ -132,6 +183,7 @@ void set_device_name()
 
 void vendor_load_properties()
 {
+
     check_device();
 
     property_set("dalvik.vm.heapstartsize", heapstartsize);
@@ -142,4 +194,7 @@ void vendor_load_properties()
     property_set("dalvik.vm.heapmaxfree", heapmaxfree);
 
     set_device_name();
+/*called poweroff alarm*/
+  init_alarm_boot_properties();
+
 }
