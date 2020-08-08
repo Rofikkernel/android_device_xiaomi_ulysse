@@ -42,3 +42,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 BUILD_FINGERPRINT := "xiaomi/ulysse/ulysse:7.1.2/N2G47H/V9.5.8.0.NDKMIFA:user/release-keys"
 
 TARGET_BOOT_ANIMATION_RES := 720
+
+#Maintainer
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.xtended.maintainer=RofikKernel
+
