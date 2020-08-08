@@ -88,6 +88,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+#add XiaomiAddon
+PRODUCT_PACKAGES += \
+    XiaomiAddon
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl \
