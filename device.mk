@@ -19,12 +19,13 @@ $(call inherit-product, vendor/xiaomi/ugg/ugg-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
+#not enable lineage overlay by default
+#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
-PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-lineage/lineage-sdk \
-    $(LOCAL_PATH)/overlay/packages/apps/Snap
+#PRODUCT_ENFORCE_RRO_TARGETS := *
+#PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+   # $(LOCAL_PATH)/overlay-lineage/lineage-sdk \
+    #$(LOCAL_PATH)/overlay/packages/apps/Snap
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
