@@ -16,3 +16,13 @@ genfscon debugfs /rmt_storage	u:object_r:debugfs_rmt:s0
 
 # Touchscreen
 genfscon proc /touchpanel	u:object_r:proc_touchpanel:s0
+
+#fix health hd battery
+genfscon sysfs /devices/soc/6a00000.ssusb/power_supply                  u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /sys/devices/soc/78b6000.i2c/i2c-2/2-006b/power_supply/battery/present  u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /sys/devices/soc/78b6000.i2c/i2c-2/2-006b/power_supply u:object_r:sysfs_batteryinfo:s0
+
+genfscon sysfs /devices/soc/msm-bcl-19/power_supply                     u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/qpnp-fg-22/power_supply                     u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/qpnp-smbcharger-21/power_supply             u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/soc:qcom,bcl/power_supply                   u:object_r:sysfs_batteryinfo:s0
