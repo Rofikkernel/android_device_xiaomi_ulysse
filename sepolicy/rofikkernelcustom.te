@@ -8,29 +8,26 @@ allow hal_light_default sysfs:file rw_file_perms;
 allow healthd sysfs:file rw_file_perms;
 
 #============= fsck ==============
-allow fsck mnt_vendor_file:dir getattr;
-allow fsck self:capability dac_read_search;
-allow fsck tmpfs:blk_file getattr;
+#allow fsck mnt_vendor_file:dir getattr;
+#allow fsck self:capability dac_read_search;
+#allow fsck tmpfs:blk_file getattr;
 
 
 #============= system_server ==============
-allow system_server init:binder call;
-allow system_server vendor_default_prop:file { getattr map open read };
+#allow system_server init:binder call;
+#allow system_server vendor_default_prop:file { getattr map open read };
 
-#============= mi_thermald ==============
-allow mi_thermald thermal_data_file:file { rename unlink };
+
 
 #============= qti_init_shell ==============
 allow qti_init_shell toolbox_exec:file getattr;
 
-#============= untrusted_app_29 ==============
-allow untrusted_app_29 persist_camera_prop:file map;
 
 
 #============= proc_net ==============
 allow proc_net proc:filesystem associate;
 
 #============= platform_app ==============
-allow platform_app init:binder call;
-allow platform_app time_daemon:unix_stream_socket connectto;
+#allow platform_app init:binder call;
+#allow platform_app time_daemon:unix_stream_socket connectto;
 
