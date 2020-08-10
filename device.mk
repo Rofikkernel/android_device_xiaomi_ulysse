@@ -231,6 +231,11 @@ PRODUCT_PACKAGES += \
     FMRadio \
     libfmjni
 
+#add bootjar fm
+PRODUCT_BOOT_JARS += \
+    qcom.fmradio
+
+
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
