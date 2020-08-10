@@ -1,27 +1,11 @@
 #Rofikkernel costum Sepolicy
-#For enable enforcing
+#Fixed Selinux Ulysse For enable enforcing
 #Hal light 
 allow hal_light_default sysfs_leds:file rw_file_perms;
 allow hal_light_default sysfs_graphics:file rw_file_perms;
 allow hal_light_default sysfs:file rw_file_perms;
 #healthhd
 allow healthd sysfs:file rw_file_perms;
-
-#============= fsck ==============
-#allow fsck mnt_vendor_file:dir getattr;
-#allow fsck self:capability dac_read_search;
-#allow fsck tmpfs:blk_file getattr;
-
-
-#============= system_server ==============
-#allow system_server init:binder call;
-#allow system_server vendor_default_prop:file { getattr map open read };
-
-
-
-#============= qti_init_shell ==============
-allow qti_init_shell toolbox_exec:file getattr;
-
 
 
 #============= proc_net ==============
@@ -30,4 +14,69 @@ allow proc_net proc:filesystem associate;
 #============= platform_app ==============
 #allow platform_app init:binder call;
 #allow platform_app time_daemon:unix_stream_socket connectto;
+
+# allow Hal audio Default
+
+typeattribute hal_audio_default data_between_core_and_vendor_violators;
+#allow hal_audio_default perfd:unix_stream_socket connectto;
+#allow hal_audio_default perfd_data_file:dir search;
+#allow hal_audio_default perfd_data_file:sock_file write;
+
+#selinux blocked sysfs call :dir for write , but read open can granted
+allow hal_audio_default  sysfs:dir search;
+allow hal_audio_default sysfs:dir {read open};
+allow hal_audio_default sysfs:file create_file_perms;
+
+#allow hal_audio_default audio_cal_device:chr_file rw_file_perms;
+r_dir_file(hal_audio_default, sysfs)
+allow hal_audio_default diag_device:chr_file rw_file_perms;
+#allow hal_audio_default audio_vendor_data_file:dir rw_dir_perms;
+#allow hal_audio_default audio_vendor_data_file:file create_file_perms;
+dontaudit hal_audio_default hal_power_hwservice:hwservice_manager find;
+
+
+
+#zygote
+allow zygote device:file rw_file_perms;
+allow zygote device:file {open write};
+allow zygote init:unix_stream_socket { getattr listen };
+
+
+#SystemServer & init
+#neverallow init:binder by domain te for treble to fix use custom system/sepolicy
+#but can generate CTS verification failed or using skip neverallowed flag
+#https://github.com/Rofikkernel/system_sepolicy
+#but disable for now for experimental only
+unix_socket_connect(system_server, zygote, zygote)
+
+allow system_server init:binder {call};
+allow system_server vendor_default_prop:file { getattr map open read };
+
+#temporary workarround
+
+
+#Power off alarm
+allow power_off_alarm kmsg_device:chr_file { getattr };
+#poweroff alarm app
+allow poweroffalarm_app cgroup:file write;
+
+
+
+
+
+#bluetooth (move on init)
+allow crash_dump bluetooth_prop:file {open getattr};
+
+
+#Priv_app
+
+#comment for android 9 below
+#typeattribute priv_app data_between_core_and_vendor_violators;
+allow priv_app proc:file { getattr open };
+allow priv_app proc_interrupts:file open;
+allow priv_app proc_interrupts:file read;
+
+allow priv_app firmware_file:file { getattr };
+allow priv_app firmware_file:file { read };
+allow priv_app firmware_file:file { open };
 

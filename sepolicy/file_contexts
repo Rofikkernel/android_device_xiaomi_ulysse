@@ -5,6 +5,12 @@
 /firmware                                                     u:object_r:firmware_file:s0
 /bt_firmware                                                  u:object_r:bt_firmware_file:s0
 
+
+# Audio
+#android 10 now vendor_file not vendor_config_file
+/system/etc/audio_policy_configuration.xml    u:object_r:vendor_file:s0
+
+
 # FPS Info
 /sys/devices/virtual/graphics/fb0/measured_fps                              u:object_r:sysfs_fps:s0
 
