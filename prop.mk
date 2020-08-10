@@ -195,10 +195,6 @@ ril.subscription.types=NV,RUIM \
 rild.libargs=-d/dev/smd0 \
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
 ro.telephony.call_ring.multiple=false \
-<<<<<<< HEAD
-ro.telephony.default_network=22,22 \
-service.qti.ims.enabled=1
-=======
 ro.telephony.default_network=22,20 \
 persist.sys.fflag.override.settings_network_and_internet_v2=true \
 service.qti.ims.enabled=1 \
@@ -219,7 +215,7 @@ debug.sf.early_gl_phase_offset_ns=3000000 \
 debug.sf.early_gl_app_phase_offset_ns=15000000 \
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
 ro.surface_flinger.max_virtual_display_dimension=4096
->>>>>>> 334826880... daisy: Improve HWUI
+
 
 # Time Services
 PRODUCT_PROPERTY_OVERRIDES += \
