@@ -267,10 +267,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
 
 # Healthd
-include $(LOCAL_PATH)/rootdir/charger/charger.mk
+
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
     android.hardware.health@2.0-service
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -522,6 +523,7 @@ PRODUCT_PACKAGES += \
     libcld80211 \
     libqsap_sdk \
     libQWiFiSoftApCfg \
+    libwifi-hal-qcom \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
@@ -549,10 +551,12 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_SOONG_NAMESPACES += \
     hardware/xiaomi
 
+
 # Google Lens
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/camera/lens/google_build.xml:system/etc/sysconfig/google_build.xml \
     $(LOCAL_PATH)/camera/lens/nexus.xml:system/etc/sysconfig/nexus.xml \
     $(LOCAL_PATH)/camera/lens/pixel_2017.xml:system/etc/sysconfig/pixel_2017.xml \
     $(LOCAL_PATH)/camera/lens/pixel_2017_exclusive.xml:system/etc/sysconfig/pixel_2017_exclusive.xml
+
 

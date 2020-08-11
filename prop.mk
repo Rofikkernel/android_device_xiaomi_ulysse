@@ -95,7 +95,6 @@ persist.hwc.enable_vds=1 \
 persist.hwc.mdpcomp.enable=true \
 ro.opengles.version=196610 \
 ro.qualcomm.cabl=0 \
-
 ro.sf.lcd_density=267 \
 ro.vendor.display.cabl=2 \
 sdm.debug.disable_skip_validate=1 \
@@ -137,6 +136,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 av.debug.disable.pers.cache=1 \
 media.aac_51_output_enabled=true \
 media.msm8956hw=0 \
+media.stagefright.thumbnail.prefer_hw_codecs=true \
 media.stagefright.audio.sink=280 \
 vendor.mm.enable.qcom_parser=1048575 \
 mm.enable.smoothstreaming=true \
@@ -175,6 +175,10 @@ persist.rild.nitz_short_ons_0="" \
 persist.rild.nitz_short_ons_1="" \
 persist.rild.nitz_short_ons_2="" \
 persist.rild.nitz_short_ons_3=""
+
+# QC framework value-adds
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.vendor.qti.va_aosp.support=1
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \

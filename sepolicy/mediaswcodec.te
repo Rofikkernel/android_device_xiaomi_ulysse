@@ -1,0 +1,2 @@
+#============= mediaswcodec ==============
+allow mediaswcodec servicemanager:binder call;
