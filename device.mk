@@ -103,9 +103,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-service \
     android.hardware.audio.effect@5.0-impl \
     android.hardware.soundtrigger@2.2-impl \
-    audio.a2dp.default \
     audio.primary.msm8937 \
- audio.primary.msm8953\
     audio.r_submix.default \
     audio.usb.default \
     libaudioroute \
@@ -124,6 +122,9 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/audio_platform_info_extcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_extcodec.xml \
 	$(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
 	$(LOCAL_PATH)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
+        $(LOCAL_PATH)/audio/audio_policy.conf:vendor/etc/audio_policy.conf \
+        $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+        $(LOCAL_PATH)/audio/audio_policy_configuration.xml:vendor/etc/audio_policy_configuration.xml \
 	$(LOCAL_PATH)/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
 	$(LOCAL_PATH)/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml \
 	$(LOCAL_PATH)/audio/mixer_paths_qrd_sku1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_sku1.xml \
@@ -155,9 +156,17 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/configs/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
         $(LOCAL_PATH)/configs/audio/mixer_paths_mtp.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_mtp.xml
 
+
+#rofikkernel
+#PRODUCT_COPY_FILES += \
+   # $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
+
+
 #add  A2DP
 PRODUCT_PACKAGES += \
   audio.a2dp.default \
+  android.hardware.bluetooth.audio@2.0 \
+  android.hardware.bluetooth.audio@2.0-impl \
   android.hardware.bluetooth.a2dp@1.0-impl \
   android.hardware.bluetooth.a2dp@1.0-service
 
@@ -257,7 +266,9 @@ PRODUCT_COPY_FILES += \
 
 # Healthd
 include $(LOCAL_PATH)/rootdir/charger/charger.mk
-
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -330,9 +341,7 @@ PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/configs/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml
 
 
-#fixAudio Fix for "deserialize: Could not parse /vendor/etc/audio/audio_policy_configuration.xml document
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
+
 
 
 PRODUCT_COPY_FILES += \

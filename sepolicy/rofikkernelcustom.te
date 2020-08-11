@@ -49,10 +49,11 @@ allow zygote init:unix_stream_socket { getattr listen };
 #but disable for now for experimental only
 unix_socket_connect(system_server, zygote, zygote)
 
-allow system_server servicemanager:binder {call};
+allow system_server servicemanager:binder call;
 allow servicemanager system_server:dir search;
-allow servicemanager system_server:file { open read };
+allow servicemanager system_server:file {read open};
 allow servicemanager system_server:process getattr;
+
 allow system_server vendor_default_prop:file { getattr map open read };
 
 #temporary workarround

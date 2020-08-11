@@ -8,7 +8,7 @@
 
 # Audio
 #android 10 now vendor_file not vendor_config_file
-/system/etc/audio_policy_configuration.xml    u:object_r:vendor_file:s0
+#/system/etc/audio_policy_configuration.xml    u:object_r:vendor_config_file:s0
 
 
 # FPS Info
