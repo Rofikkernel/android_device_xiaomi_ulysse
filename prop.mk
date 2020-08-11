@@ -97,13 +97,10 @@ ro.opengles.version=196610 \
 ro.qualcomm.cabl=0 \
 
 ro.sf.lcd_density=267 \
-ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
 ro.vendor.display.cabl=2 \
 sdm.debug.disable_skip_validate=1 \
 vendor.display.disable_skip_validate=1 \
-vendor.display.enable_default_color_mode=1 \
-vendor.gralloc.enable_fb_ubwc=1 \
-debug.hwui.renderer=opengl
+vendor.display.enable_default_color_mode=1 
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -195,26 +192,9 @@ ril.subscription.types=NV,RUIM \
 rild.libargs=-d/dev/smd0 \
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
 ro.telephony.call_ring.multiple=false \
-ro.telephony.default_network=22,20 \
-persist.sys.fflag.override.settings_network_and_internet_v2=true \
-service.qti.ims.enabled=1 \
-persist.vendor.vt.supported=1 \
-persist.vendor.sys.cnd.iwlan=1 \
-persist.vendor.cne.logging.qxdm=3974
 
-# Sensors
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.sensor.proximity=true
 
-# SurfaceFlinger
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.surface_flinger.protected_contents=true \
-debug.sf.early_phase_offset_ns=1500000 \
-debug.sf.early_app_phase_offset_ns=1500000 \
-debug.sf.early_gl_phase_offset_ns=3000000 \
-debug.sf.early_gl_app_phase_offset_ns=15000000 \
-ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
-ro.surface_flinger.max_virtual_display_dimension=4096
+
 
 
 # Time Services

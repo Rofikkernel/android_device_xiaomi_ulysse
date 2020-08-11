@@ -94,8 +94,10 @@ PRODUCT_PACKAGES += \
 
 #add Xiaomi Parts to ulysse
 PRODUCT_PACKAGES += \
-    XiaomiParts \
-    XiaomiDoze
+    XiaomiParts 
+ 
+
+   #XiaomiDoze
 
 # Audio
 PRODUCT_PACKAGES += \

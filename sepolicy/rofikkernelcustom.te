@@ -54,15 +54,12 @@ allow servicemanager system_server:dir search;
 allow servicemanager system_server:file {read open};
 allow servicemanager system_server:process getattr;
 
-allow system_server vendor_default_prop:file { getattr map open read };
+#allow system_server vendor_default_prop:file { getattr map open read };
 
 #temporary workarround
 
 
-#Power off alarm
-allow power_off_alarm kmsg_device:chr_file { getattr };
-#poweroff alarm app
-allow poweroffalarm_app cgroup:file write;
+
 
 
 
@@ -76,11 +73,5 @@ allow crash_dump bluetooth_prop:file {open getattr};
 
 #comment for android 9 below
 #typeattribute priv_app data_between_core_and_vendor_violators;
-allow priv_app proc:file { getattr open };
-allow priv_app proc_interrupts:file open;
-allow priv_app proc_interrupts:file read;
 
-allow priv_app firmware_file:file { getattr };
-allow priv_app firmware_file:file { read };
-allow priv_app firmware_file:file { open };
 
