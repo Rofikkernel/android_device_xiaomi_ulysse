@@ -153,10 +153,6 @@ PRODUCT_PACKAGES += \
     libmm-qcamera \
     Snap
 
-PRODUCT_PACKAGES += \
-    libcutils.vendor \
-    libprocessgroup.vendor
-
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service
