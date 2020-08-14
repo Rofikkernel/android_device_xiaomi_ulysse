@@ -42,4 +42,4 @@
 /dev/block/platform/soc/7824900.sdhci/by-name/tz             u:object_r:custom_ab_block_device:s0
 
 # Ir
-/dev/peel_ir					u:object_r:lirc_device:s0
+/dev/lirc0					u:object_r:lirc_device:s0
