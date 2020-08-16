@@ -92,6 +92,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiAddon
 
+# Doze mode
+PRODUCT_PACKAGES += \
+    XiaomiDoze
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl \
