@@ -146,6 +146,14 @@ void check_device()
         heaptargetutilization = "0.6";
         heapminfree = "8m";
         heapmaxfree = "16m";
+    } else if (sys.totalram > 2048ull * 1024 * 1024) {
+        // from - phone-xhdpi-2048-dalvik-heap.mk
+        heapstartsize = "8m";
+        heapgrowthlimit = "192m";
+        heapsize = "512m";
+        heaptargetutilization = "0.75";
+        heapminfree = "512k";
+        heapmaxfree = "8m";
     } else {
         // from - phone-xhdpi-2048-dalvik-heap.mk
         heapstartsize = "8m";
@@ -154,6 +162,9 @@ void check_device()
         heaptargetutilization = "0.75";
         heapminfree = "512k";
         heapmaxfree = "8m";
+
+        // Enable low ram flag
+        property_set("ro.config.low_ram", "true");
     }
 }
 
@@ -194,7 +205,13 @@ void vendor_load_properties()
     property_set("dalvik.vm.heapmaxfree", heapmaxfree);
 
     set_device_name();
+
 /*called poweroff alarm*/
   init_alarm_boot_properties();
+
+
+
+    // Pixel identification
+    property_override("ro.build.fingerprint","google/flame/flame:10/QQ3A.200605.001/6392402:user/release-keys");
 
 }

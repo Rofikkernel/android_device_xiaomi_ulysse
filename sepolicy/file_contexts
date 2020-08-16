@@ -8,7 +8,7 @@
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.0-service\.widevine         u:object_r:hal_drm_widevine_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey         u:object_r:hal_drm_clearkey_exec:s0
-/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.xiaomi_ulysse      u:object_r:hal_lineage_touch_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.xiaomi_ulysse-unified      u:object_r:hal_lineage_touch_default_exec:s0
 
 # Input devices
 /(vendor|system/vendor)/usr/idc(/.*)?                         u:object_r:idc_file:s0
@@ -16,6 +16,9 @@
 
 # Location
 /data/vendor/location/xtra/socket_hal_xtra    u:object_r:location_socket:s0
+
+# Power
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.2-service-qti\.ulysse-unified             u:object_r:hal_power_default_exec:s0
 
 # Rild
 /(vendor|system/vendor)/radio/qcril_database/qcril.db			u:object_r:rild_file:s0
@@ -39,4 +42,4 @@
 /dev/block/platform/soc/7824900.sdhci/by-name/tz             u:object_r:custom_ab_block_device:s0
 
 # Ir
-/dev/peel_ir					u:object_r:lirc_device:s0
+/dev/lirc0					u:object_r:lirc_device:s0

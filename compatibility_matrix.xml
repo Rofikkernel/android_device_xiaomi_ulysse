@@ -24,14 +24,6 @@
         </interface>
     </hal>
     <hal format="hidl" optional="false">
-        <name>android.hardware.graphics.composer</name>
-        <version>2.1</version>
-        <interface>
-            <name>IComposer</name>
-            <instance>vr</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
         <name>android.hidl.allocator</name>
         <version>1.0</version>
         <interface>
@@ -79,4 +71,10 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <vendor-ndk>
+        <version>29</version>
+    </vendor-ndk>
+    <system-sdk>
+        <version>29</version>
+    </system-sdk>
 </compatibility-matrix>

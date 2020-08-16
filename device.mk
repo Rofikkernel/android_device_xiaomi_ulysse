@@ -111,6 +111,10 @@ PRODUCT_PACKAGES += \
     libvolumelistener \
     tinymix
 
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.a2dp@1.0 \
+    android.hardware.bluetooth.audio@2.0
+
 # Audio configuration
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
@@ -178,11 +182,11 @@ PRODUCT_PACKAGES += \
     gralloc.msm8937 \
     hwcomposer.msm8937 \
     memtrack.msm8937 \
-    libdisplayconfig \
     liboverlay \
     libqdMetaData.system \
     libgenlock \
-    libtinyxml
+    libtinyxml \
+    vendor.display.config@1.1_vendor
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -225,12 +229,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
 
 # Healthd
-include $(LOCAL_PATH)/rootdir/charger/charger.mk
+PRODUCT_PACKAGES += \
+    android.hardware.health@2.0-impl \
+    android.hardware.health@2.0-service
 
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.manager@1.0
+    android.hidl.manager@1.0 \
+    android.hidl.manager@1.0-java
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -311,6 +318,7 @@ PRODUCT_PACKAGES += \
 
 # OMX
 PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0 \
     libc2dcolorconvert \
     libmm-omxcore \
     libOmxAacEnc \
@@ -331,7 +339,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # Properties
--include device/xiaomi/ulysse/prop.mk
+-include device/xiaomi/ulysse/vendor_prop.mk
+-include device/xiaomi/ulysse/product_prop.mk
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -356,6 +365,7 @@ PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh
 
 PRODUCT_PACKAGES += \
+    init.class_main.sh \
     init.qcom.bt.sh \
     init.qcom.post_boot.sh \
     move_time_data.sh \
@@ -429,7 +439,9 @@ $(call inherit-product, build/target/product/verity.mk)
 
 # VNDK
 PRODUCT_PACKAGES += \
-    vndk-sp
+    vndk_package \
+    vndk-ext \
+    libstdc++.vendor
 
 # Thermal
 PRODUCT_PACKAGES += \
@@ -468,6 +480,7 @@ PRODUCT_PACKAGES += \
     libcld80211 \
     libqsap_sdk \
     libQWiFiSoftApCfg \
+    libwifi-hal-qcom \
     libwpa_client \
     hostapd \
     dhcpcd.conf \

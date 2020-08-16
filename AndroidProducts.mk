@@ -22,5 +22,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/bootleg_ulysse.mk \
     $(LOCAL_DIR)/du_ulysse.mk \
     $(LOCAL_DIR)/rr_ulysse.mk \
-    $(LOCAL_DIR)/xtended_ulysse.mk\
-    $(LOCAL_DIR)/havoc_ulysse.mk
+    $(LOCAL_DIR)/havoc_ulysse.mk\
+    $(LOCAL_DIR)/xtended_ulysse.mk
+
