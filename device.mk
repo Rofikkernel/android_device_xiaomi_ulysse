@@ -98,11 +98,18 @@ PRODUCT_PACKAGES += \
 
 # Audio
 PRODUCT_PACKAGES += \
+android.hardware.audio@5.0 \
     android.hardware.audio@5.0-impl \
+    android.hardware.audio@2.0-impl \
     android.hardware.audio@2.0-service \
+     android.hardware.audio.common@5.0 \
+    android.hardware.audio.common@5.0-util \
     android.hardware.audio.effect@5.0-impl \
+ android.hardware.audio.effect@2.0-impl \
     android.hardware.bluetooth.audio@2.0-impl \
     android.hardware.soundtrigger@2.2-impl \
+   android.hardware.bluetooth.a2dp@1.0 \
+    android.hardware.bluetooth.audio@2.0\
     audio.a2dp.default \
    audio.bluetooth.default \
     audio.primary.msm8937 \
@@ -117,12 +124,12 @@ PRODUCT_PACKAGES += \
     libvolumelistener \
     tinymix
 
-PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.a2dp@1.0 \
-    android.hardware.bluetooth.audio@2.0
+
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+         $(LOCAL_PATH)/audio/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
 	$(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
 	$(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
 	$(LOCAL_PATH)/audio/audio_platform_info_extcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_extcodec.xml \
@@ -152,7 +159,7 @@ PRODUCT_COPY_FILES += \
 
 # XML Audio configuration files
 PRODUCT_COPY_FILES += \
-    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml \
     frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_audio_policy_configuration.xml \
     frameworks/av/services/audiopolicy/config/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
@@ -224,15 +231,20 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
+ android.hardware.gnss@2.0-impl-qti \
+    android.hardware.gnss@2.0-service-qti \
+    libbatching \
+    libgeofencing \
+    libgnss \
+    libsensorndkbridge \
     libwifi-hal-ctrl
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
-    $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
-    $(LOCAL_PATH)/configs/gps/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
-    $(LOCAL_PATH)/configs/gps/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
-    $(LOCAL_PATH)/configs/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf \
-    $(LOCAL_PATH)/configs/gps/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
+  $(LOCAL_PATH)/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    $(LOCAL_PATH)/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
+    $(LOCAL_PATH)/gps/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
+    $(LOCAL_PATH)/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf
+     $(LOCAL_PATH)/configs/gps/xtwifi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/xtwifi.conf
 
 # Healthd
 PRODUCT_PACKAGES += \
@@ -402,9 +414,11 @@ PRODUCT_PACKAGES += \
     qti_telephony_hidl_wrapper.xml \
     qti-telephony-utils \
     qti_telephony_utils.xml \
+ims-ext-common_system \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
+ims-ext-common_system \
     telephony-ext
 
 # Seccomp policy

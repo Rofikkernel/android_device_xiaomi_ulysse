@@ -163,8 +163,7 @@ void check_device()
         heapminfree = "512k";
         heapmaxfree = "8m";
 
-        // Enable low ram flag
-        property_set("ro.config.low_ram", "true");
+      
     }
 }
 
@@ -211,7 +210,6 @@ void vendor_load_properties()
 
 
 
-    // Pixel identification
-    property_override("ro.build.fingerprint","google/flame/flame:10/QQ3A.200605.001/6392402:user/release-keys");
+
 
 }
