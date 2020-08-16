@@ -4,4 +4,5 @@ EXTRA_VENDOR_LIBRARIES := \
 
 EXTRA_VENDOR_LIBRARIES += \
     libcutils \
+    libgui \
     libprocessgroup
