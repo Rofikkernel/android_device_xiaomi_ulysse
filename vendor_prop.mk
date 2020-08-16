@@ -62,7 +62,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 persist.camera.dual.camera=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-vendor.camera.hal1.packagelist=com.whatsapp,com.intsig.camscanner,com.instagram.android,com.skype.raider,com.google.android.talk \
+vendor.camera.hal1.packagelist=com.whatsapp,com.instagram.android,com.skype.raider,com.google.android.talk \
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.motorola.faceunlock,com.android.camera,org,org.lineageos.snap
 
 # Cne/Dpm
