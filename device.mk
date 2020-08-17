@@ -383,8 +383,7 @@ PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh
 
 PRODUCT_PACKAGES += \
-    init.class_main.sh \
-    init.qcom.bt.sh \
+   init.qcom.bt.sh \
     init.qcom.post_boot.sh \
     move_time_data.sh \
     move_wifi_data.sh
@@ -414,12 +413,10 @@ PRODUCT_PACKAGES += \
     qti_telephony_hidl_wrapper.xml \
     qti-telephony-utils \
     qti_telephony_utils.xml \
-ims-ext-common_system \
-    telephony-ext
+telephony-ext
 
 PRODUCT_BOOT_JARS += \
-ims-ext-common_system \
-    telephony-ext
+ telephony-ext
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
