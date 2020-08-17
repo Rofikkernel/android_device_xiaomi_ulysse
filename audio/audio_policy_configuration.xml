@@ -257,7 +257,9 @@
                 <route type="mix" sink="BT SCO Headset"
                        sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
                 <route type="mix" sink="BT SCO Car Kit"
-                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
+
+                       sources="primary output,raw,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
+
                 <route type="mix" sink="Telephony Tx"
                        sources="voice_tx"/>
                 <route type="mix" sink="primary input"
